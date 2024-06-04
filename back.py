@@ -52,15 +52,8 @@ class SimpleFileSystem:
                 if filename_or_file_content in name:
                     results.append(f"Найден файл: {name}")
                     found = True
-                else:
-                    file_path = os.path.join(root, name)
-                    with open(file_path, 'r') as f:
-                        content = f.read()
-                        if filename_or_file_content in content:
-                            results.append(f"Найден файл: {name} (по содержимому)")
-                            found = True
         if not found:
-            results.append("Файлы, соответствующие запросу, не найдены.")
+            results.append("Файл(ы) не найдены.")
         return "\\n".join(results)
 
     def list_files(self):
